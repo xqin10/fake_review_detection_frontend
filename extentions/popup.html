@@ -1,10 +1,52 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="button.css">
-  </head>
-  <body>
-    <!-- <button id="changeColor"></button> -->
-    <script src="popup.js"></script>
-  </body>
+
+<head>
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="button.css">
+  <link rel="stylesheet" href="body.css">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <script src="jquery.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row text-center center-block" style="margin-bottom: 0%;padding-bottom: 0%;">
+      <img src="images/smartacus.png" width="45%" />
+      <font size="3">for Chrome</font>
+    </div>
+    <hr class="solid">
+    <div class="row text-center">
+      <h4 style="padding-bottom: 4px; margin-bottom: 4%;" >Fight the Fake</h4>
+    </div>
+    <div class="row text-center">
+      <div class="col-md-6">
+        <h5 id="warning"></h5>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="text-center">
+        <img id="logo" class="img-fluid" width="220" height="40" />
+        <div id="hotel_name"></div>
+        <div id="simple_stat"></div>
+        <form action="http://smartacus.ml/results" method="POST" target="_blank" id="myform">
+          <input type="hidden" name="urlinput" id="url" />
+          <span id="tagline">To get a detailed analysis report, click below</span>
+          <button class="btn-outline-light btn-sm" role="button" type="submit"
+            style="/*font-weight: bold;*/background: rgb(234,155,105);margin-top: 0%;padding-top: 6px;padding-bottom: 4px; margin-bottom: 4%;"
+            target="_top" value="Analyze" id="submit">Generate Report</button>
+        </form>
+      </div>
+    </div>
+    <hr class="solid">
+    <div class="row text-center">
+      To know more visit: <a href="http://smartacus.ml/home" target="_blank">www.smartacus.ml</a>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
 </html>
