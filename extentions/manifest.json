@@ -1,7 +1,7 @@
 {
-  "name": "Getting Started Example",
-  "description": "Build an Extension!",
-  "version": "1.0",
+  "name": "Project Smartacus",
+  "description": "Identify fake reviews. Ensure hotels, restaurants, cafes and bars are genuine.  Avoid a horrible experience.!",
+  "version": "2.0",
   "manifest_version": 3,
   "background": {
     "service_worker": "background.js"
