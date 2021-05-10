@@ -1,24 +1,24 @@
-// // Initialize butotn with users's prefered color
-// let changeColor = document.getElementById("changeColor");
-
-// chrome.storage.sync.get("color", ({ color }) => {
-//   changeColor.style.backgroundColor = color;
-// });
-
-// // When the button is clicked, inject setPageBackgroundColor into current page
-// changeColor.addEventListener("click", async () => {
-//   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-
-//   chrome.scripting.executeScript({
-//     target: { tabId: tab.id },
-//     function: setPageBackgroundColor,
-//   });
-// });
-
-// // The body of this function will be execuetd as a content script inside the
-// // current page
-// function setPageBackgroundColor() {
-//   chrome.storage.sync.get("color", ({ color }) => {
-//     document.body.style.backgroundColor = color;
-//   });
-// }
+chrome.tabs.query({ active: true, lastFocusedWindow: true }, (tabs) => {
+  let url = tabs[0].url;
+  var patt = /(www.tripadvisor.com.*\/(Hotel_Review-|Restaurant_Review-))|(www.yelp.com.*)/g;
+  if (patt.test(url)) {
+    document.getElementById("warning").style.display = "none";
+    u = document.getElementById("url");
+    u.setAttribute("value", url);
+    if (
+      /www.tripadvisor.com.*\/(Hotel_Review-|Restaurant_Review-)/g.test(url)
+    ) {
+      document.getElementById("logo").src = "images/TripAdvisor.svg";
+    } else if (/www.yelp.com.*/g.test(url)) {
+      document.getElementById("logo").src = "images/Yelp.png";
+      document.getElementById("logo").width = "100";
+    }
+  } else {
+    document.getElementById("submit").style.display = "none";
+    document.getElementById("tagline").style.display = "none";
+    document.getElementById("logo").style.display = "none";
+    // document.getElementById("warn").innerHTML = "<h2> No the TripAdvisor Hotel/Restaurant Website. </h2>";
+    document.getElementById("warning").innerHTML =
+      "This page doesn't appear to be TripAdvisor's Hotel/Restaurant. ";
+  }
+});
